@@ -9,7 +9,7 @@ class ShapeModel {
   constructor( shapeDirection, shapeLength ) {
     this.shapeDirection = shapeDirection;
     this.shapeLength = shapeLength;
-    this.relativeCoords = calcRelativeCoords();
+    this.relativeCoords = this.calcRelativeCoords();
   }
 
   calcRelativeCoords() {
@@ -28,9 +28,9 @@ class ShapeModel {
       else if ( this.shapeDirection == SHAPE_DIRECTIONS.DOWN ) {
         coords.push( [ -i, 0 ] );
       }
-
-      return coords;
     }
+
+    return coords;
   }
 
   getRelativeCoords() {
@@ -39,6 +39,14 @@ class ShapeModel {
 
   getAbsoluteCoords( cellRowIndex, cellColIndex ) {
     return this.relativeCoords.map( relCoord => [ cellRowIndex + cellRowIndex[ 0 ], cellColIndex + cellRowIndex[ 1 ] ] );
+  }
+
+  getLength() {
+    return this.shapeLength;
+  }
+
+  getDirection() {
+    return this.shapeDirection;
   }
 }
 

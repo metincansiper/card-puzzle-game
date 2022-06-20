@@ -10,12 +10,20 @@ export const DECK_TYPE = {
   TYPE_4: 4
 };
 
-class DeckModel() {
+class DeckModel {
   constructor( deckType, minShapeLength = 2, maxShapeLength = 4 ) {
     this.deckType = deckType;
     this.minShapeLength = minShapeLength;
     this.maxShapeLength = maxShapeLength;
     this.cards = this.generateCards();
+  }
+
+  getMinShapeLength() {
+    return this.minShapeLength;
+  }
+
+  getMaxShapeLength() {
+    return this.maxShapeLength;
   }
 
   getDeckType() {
@@ -25,7 +33,7 @@ class DeckModel() {
   generateCards(shuffle = true) {
     const cards = [];
 
-    for ( let shapeLength = minShapeLength; shapeLength <= maxShapeLength; shapeLength++ ) {
+    for ( let shapeLength = this.minShapeLength; shapeLength <= this.maxShapeLength; shapeLength++ ) {
       Object.values( SHAPE_DIRECTIONS ).forEach( shapeDirection => {
         cards.push( new CardModel( shapeDirection, shapeLength, this.deckType ) );
       } );

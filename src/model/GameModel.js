@@ -1,6 +1,6 @@
 import DeckModel, { DECK_TYPE } from './DeckModel';
 
-const GAME_STATUS = {
+export const GAME_STATUS = {
   ON: 0,
   LOST: 1,
   WON: 2
@@ -129,3 +129,5 @@ class GameModel {
     return noIntersection;
   }
 }
+
+export default GameModel;

@@ -1,6 +1,6 @@
 import ShapeModel from './ShapeModel';
 
-class CardModel() {
+class CardModel {
   constructor( shapeDirection, shapeLength, deckType ) {
     this.shapeDirection = shapeDirection;
     this.shapeLength = shapeLength;
