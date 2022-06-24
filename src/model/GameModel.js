@@ -51,7 +51,7 @@ class GameModel {
     return this.gameStatus != GAME_STATUS.WON;
   }
 
-  generateTypeToDeck() {
+  getTypeToDeck() {
     return this.typeToDeck;
   }
 

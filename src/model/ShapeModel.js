@@ -38,7 +38,7 @@ class ShapeModel {
   }
 
   getAbsoluteCoords( cellRowIndex, cellColIndex ) {
-    return this.relativeCoords.map( relCoord => [ cellRowIndex + cellRowIndex[ 0 ], cellColIndex + cellRowIndex[ 1 ] ] );
+    return this.relativeCoords.map( relCoord => [ cellRowIndex + relCoord[ 0 ], cellColIndex + relCoord[ 1 ] ] );
   }
 
   getLength() {
