@@ -13,3 +13,23 @@
 .outside {
   background-color: gray;
 }
+
+.intersection {
+  background-color: black;
+}
+
+.type1 {
+  background-color: var(--type1color);
+}
+
+.type2 {
+  background-color: var(--type2color);
+}
+
+.type3 {
+  background-color: var(--type3color);
+}
+
+.type4 {
+  background-color: var(--type4color);
+}

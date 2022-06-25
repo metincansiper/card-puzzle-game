@@ -51,6 +51,10 @@ class DeckModel {
     return this.cards;
   }
 
+  getSize() {
+    return this.cards.length;
+  }
+
   getTopCard() {
     return this.cards[ this.cards.length - 1 ];
   }
@@ -60,7 +64,7 @@ class DeckModel {
   }
 
   isEmpty() {
-    return this.cards.length != 0;
+    return this.cards.length == 0;
   }
 }
 

@@ -1,6 +1,7 @@
 import DeckModel, { DECK_TYPE } from './DeckModel';
 import BoardModel from './BoardModel';
 import { MIN_SHAPE_LENGTH, MAX_SHAPE_LENGTH, BOARD_INNER_WIDTH, BOARD_INNER_HEIGHT, BOARD_PADDING } from '../config';
+import EventEmitter from 'events';
 
 export const GAME_STATUS = {
   ON: 0,
@@ -31,6 +32,16 @@ class GameModel {
 
     this.gameStatus = GAME_STATUS.ON;
     this.score = 0;
+
+    this.ee = new EventEmitter();
+  }
+
+  on( eventName, fcn ) {
+    this.ee.on( eventName, fcn );
+  }
+
+  emit( eventName ) {
+    this.ee.emit( eventName );
   }
 
   getGameStatus() {
@@ -39,6 +50,7 @@ class GameModel {
 
   setGameStatus( gameStatus ) {
     this.gameStatus = gameStatus;
+    this.emit( 'gameStatusUpdate' );
   }
 
   winGame() {
@@ -100,40 +112,58 @@ class GameModel {
     return this.typeToDeck[ deckType ];
   }
 
+  getDecks() {
+    return Object.values( this.typeToDeck );
+  }
+
   generateDeck( deckType ) {
     return new DeckModel( deckType, this.minShapeLength, this.maxShapeLength );
   }
 
   selectDeck( deckType ) {
     this.selectedDeckType = deckType;
+    this.emit( 'selectedDeckUpdate' );
   }
 
   selectNonEmptyDeck() {
     const deckTypes = Object.values( DECK_TYPE );
-    this.selectedDeckType = deckTypes.find( deckType => !this.getDeck( deckType ).isEmpty() );
+    this.selectDeck( deckTypes.find( deckType => !this.getDeck( deckType ).isEmpty() ) );
   }
 
   getSelectedDeck() {
     return this.getDeck( this.selectedDeckType );
   }
 
+  getSelectedDeckType() {
+    return this.selectedDeckType;
+  }
+
   popTopFromSelectedDeck() {
-    const selectDeck = this.getDeck( this.selectedDeckType );
-    return selectDeck.popTopCard();
+    const selectedDeck = this.getDeck( this.selectedDeckType );
+    return selectedDeck.popTopCard();
   }
 
   getTopFromSelectedDeck() {
-    const selectDeck = this.getDeck( this.selectedDeckType );
-    return selectDeck.getTopCard();
+    const selectedDeck = this.getDeck( this.selectedDeckType );
+    return selectedDeck.getTopCard();
   }
 
   incrementScore( incrementBy ) {
-    this.score += incrementBy;
+    this.setScore( this.getScore() + incrementBy );
+  }
+
+  setScore( score ) {
+    this.score = score;
+    this.emit( 'scoreUpdate' );
+  }
+
+  getScore() {
+    return this.score;
   }
 
   checkWin() {
     const decks = Object.values( this.typeToDeck );
-    return decks.some( deck => !deck.isEmpty() );
+    return decks.every( deck => deck.isEmpty() );
   }
 
   locateTopFromSelectedDeck( cellRowIndex, cellColIndex ) {
@@ -152,11 +182,16 @@ class GameModel {
       this.looseGame();
     }
 
+    this.emit( 'boardUpdate' );
     return noIntersection;
   }
 
   cloneBoardData() {
     return this.board.cloneBoardData();
+  }
+
+  checkCellAvailability( rowIndex, colIndex ) {
+    return this.board.checkCellAvailability( rowIndex, colIndex );
   }
 }
 

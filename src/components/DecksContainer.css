@@ -1,0 +1,9 @@
+.decksContainer {
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  padding: 5px;
+}

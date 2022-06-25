@@ -1,0 +1,8 @@
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.leftBox {
+  padding: 5px;
+}

@@ -1,13 +1,13 @@
 import './GridContainer.css';
 import GridRow from './GridRow';
 
-function GridContainer( { rowData } ) {
+function GridContainer( { boardData, onCellClick } ) {
   return (
     <div className="gridContainer">
     {
-      rowData.map( val => {
+      boardData.map( ( rowData, rowIndex ) => {
         return (
-          <GridCell val={val} />
+          <GridRow key={rowIndex} rowData={rowData} rowIndex={rowIndex} onCellClick={ colIndex => onCellClick( rowIndex, colIndex ) } />
         )
       } )
     }
