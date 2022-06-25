@@ -26,8 +26,8 @@ test('test top shape', () => {
   const shapeLength = 3;
   const shape = new ShapeModel( shapeDirection, shapeLength );
   const relCoords = shape.getRelativeCoords();
-  const expectedCoords = [ [ 0, 0 ], [ 1, 0 ], [ 2, 0 ] ];
-  expect( relCoords ).toEqual( expectedCoords );
+  const expectedCoords = [ [ 0, 0 ], [ -1, 0 ], [ -2, 0 ] ];
+  expect( JSON.stringify( relCoords ) ).toEqual( JSON.stringify( expectedCoords ) );
 });
 
 test('test bottom shape', () => {
@@ -35,11 +35,11 @@ test('test bottom shape', () => {
   const shapeLength = 3;
   const shape = new ShapeModel( shapeDirection, shapeLength );
   const relCoords = shape.getRelativeCoords();
-  const expectedCoords = [ [ 0, 0 ], [ -1, 0 ], [ -2, 0 ] ];
+  const expectedCoords = [ [ 0, 0 ], [ 1, 0 ], [ 2, 0 ] ];
   // jest does not accept -0 and 0 as equal
   // as a temporary solution use JSON.stringify() here
   // see a similar discussion here (https://stackoverflow.com/questions/48405174/how-to-make-jest-not-distinguish-between-negative-zero-and-positive-zero)
-  expect( JSON.stringify( relCoords ) ).toEqual( JSON.stringify( expectedCoords ) );
+  expect( relCoords ).toEqual( expectedCoords );
 });
 
 test('test absolute coordinates of shape', () => {

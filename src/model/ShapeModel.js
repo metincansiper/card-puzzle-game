@@ -1,8 +1,8 @@
 export const SHAPE_DIRECTIONS = {
   LEFT: 0,
   RIGHT: 1,
-  UP: 3,
-  DOWN: 4
+  UP: 2,
+  DOWN: 3
 };
 
 class ShapeModel {
@@ -23,10 +23,10 @@ class ShapeModel {
         coords.push( [ 0, i ] );
       }
       else if ( this.shapeDirection == SHAPE_DIRECTIONS.UP ) {
-        coords.push( [ i, 0 ] );
+        coords.push( [ -i, 0 ] );
       }
       else if ( this.shapeDirection == SHAPE_DIRECTIONS.DOWN ) {
-        coords.push( [ -i, 0 ] );
+        coords.push( [ i, 0 ] );
       }
     }
 

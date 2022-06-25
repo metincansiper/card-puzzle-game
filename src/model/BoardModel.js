@@ -1,9 +1,10 @@
 import { CELL_STATUS } from './CellModel';
 import ShapeModel from './ShapeModel';
 import CardModel from './CardModel';
+import { BOARD_INNER_WIDTH, BOARD_INNER_HEIGHT, BOARD_PADDING } from '../config';
 
 class BoardModel {
-  constructor(width = 8, height = 20, padding = 3) {
+  constructor(width = BOARD_INNER_WIDTH, height = BOARD_INNER_HEIGHT, padding = BOARD_PADDING) {
     this.height = height;
     this.width = width;
     this.padding = padding;
@@ -89,8 +90,6 @@ class BoardModel {
   locateShape( cellRowIndex, cellColIndex, shape, fillVal ) {
     let noIntersection = true;
     const coords = shape.getAbsoluteCoords( cellRowIndex, cellColIndex );
-
-    console.log( coords )
 
     for ( const coord of coords ) {
       const rowIndex = coord[ 0 ];

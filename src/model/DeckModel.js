@@ -2,6 +2,7 @@
 import { SHAPE_DIRECTIONS } from './ShapeModel';
 import CardModel from './CardModel';
 import { inplaceShuffle } from '../util';
+import { MIN_SHAPE_LENGTH, MAX_SHAPE_LENGTH } from '../config';
 
 export const DECK_TYPE = {
   TYPE_1: 1,
@@ -11,7 +12,7 @@ export const DECK_TYPE = {
 };
 
 class DeckModel {
-  constructor( deckType, minShapeLength = 2, maxShapeLength = 4 ) {
+  constructor( deckType, minShapeLength = MIN_SHAPE_LENGTH, maxShapeLength = MAX_SHAPE_LENGTH ) {
     this.deckType = deckType;
     this.minShapeLength = minShapeLength;
     this.maxShapeLength = maxShapeLength;
