@@ -1,0 +1,4 @@
+.gridRow {
+  display: flex;
+  /*grid-template-columns: repeat(10, 1fr);*/
+}

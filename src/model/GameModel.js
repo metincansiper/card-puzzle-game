@@ -77,6 +77,10 @@ class GameModel {
     return this.boardPadding;
   }
 
+  getBoardData() {
+    return this.board.getBoardData();
+  }
+
   generateBoard() {
     return new BoardModel( this.boardWidth, this.boardHeight, this.boardPadding );
   }
@@ -106,11 +110,11 @@ class GameModel {
 
   selectNonEmptyDeck() {
     const deckTypes = Object.values( DECK_TYPE );
-    this.selectedDeckType = deckTypes.find( deckType => !isEmpty( getDeck( deckType ) ) );
+    this.selectedDeckType = deckTypes.find( deckType => !this.getDeck( deckType ).isEmpty() );
   }
 
   getSelectedDeck() {
-    return getDeck( this.selectedDeckType );
+    return this.getDeck( this.selectedDeckType );
   }
 
   popTopFromSelectedDeck() {
@@ -149,6 +153,10 @@ class GameModel {
     }
 
     return noIntersection;
+  }
+
+  cloneBoardData() {
+    return this.board.cloneBoardData();
   }
 }
 
