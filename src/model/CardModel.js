@@ -20,6 +20,10 @@ class CardModel {
     return this.shapeLength;
   }
 
+  getShapeDirection() {
+    return this.shapeDirection;
+  }
+
   getDeckType() {
     return this.deckType;
   }

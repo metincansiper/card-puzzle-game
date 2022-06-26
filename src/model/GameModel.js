@@ -33,6 +33,8 @@ class GameModel {
     this.gameStatus = GAME_STATUS.ON;
     this.score = 0;
 
+    this.lastUsedCard = null;
+
     this.ee = new EventEmitter();
   }
 
@@ -121,6 +123,11 @@ class GameModel {
   }
 
   selectDeck( deckType ) {
+    const deck = this.getDeck( deckType );
+    if ( deck.isEmpty() ) {
+      return;
+    }
+    
     this.selectedDeckType = deckType;
     this.emit( 'selectedDeckUpdate' );
   }
@@ -140,7 +147,18 @@ class GameModel {
 
   popTopFromSelectedDeck() {
     const selectedDeck = this.getDeck( this.selectedDeckType );
-    return selectedDeck.popTopCard();
+    const card = selectedDeck.popTopCard();
+    this.setLastUsedCard( card );
+    return card;
+  }
+
+  setLastUsedCard( card ) {
+    this.lastUsedCard = card;
+    this.emit( 'lastUsedCardUpdate' );
+  }
+
+  getLastUsedCard() {
+    return this.lastUsedCard;
   }
 
   getTopFromSelectedDeck() {

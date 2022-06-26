@@ -1,0 +1,84 @@
+.card {
+  width: 75px;
+  height: 100px;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+
+.type1 {
+  color: var(--type1color);
+}
+
+.type2 {
+  color: var(--type2color);
+}
+
+.type3 {
+  color: var(--type3color);
+}
+
+.type4 {
+  color: var(--type4color);
+}
+
+.type1 * {
+  --color: var(--type1color);
+}
+
+.type2 * {
+  --color: var(--type2color);
+}
+
+.type3 * {
+  --color: var(--type3color);
+}
+
+.type4 * {
+  --color: var(--type4color);
+}
+
+.up, .down, .left, .right {
+  --size: 18px;
+}
+
+/*
+up, down, right and left tirangle shapes are taken from https://css-tricks.com/the-shapes-of-css/
+*/
+
+.up {
+  width: 0;
+  height: 0;
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: calc( 2 * var(--size) ) solid var(--color);
+}
+
+.down {
+  width: 0;
+  height: 0;
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: calc( 2 * var(--size) ) solid var(--color);
+}
+
+.left {
+  width: 0;
+  height: 0;
+  border-top: var(--size) solid transparent;
+  border-right: calc( 2 * var(--size) ) solid var(--color);
+  border-bottom: var(--size) solid transparent;
+}
+
+.right {
+  width: 0;
+  height: 0;
+  border-top: var(--size) solid transparent;
+  border-left: calc( 2 * var(--size) ) solid var(--color);
+  border-bottom: var(--size) solid transparent;
+}
