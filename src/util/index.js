@@ -11,3 +11,14 @@ export const inplaceShuffle = ( arr ) => {
 export const generateRandomInteger = ( lowerLimit, upperLimit ) => {
   return Math.floor( Math.random() * ( upperLimit - lowerLimit + 1 ) ) + lowerLimit;
 };
+
+export const buildClassName = classList => {
+  return classList.join(' ');
+};
+
+export const getTypeString = typeVal => {
+  if ( typeVal == null ) {
+    return null;
+  }
+  return 'type' + typeVal;
+};

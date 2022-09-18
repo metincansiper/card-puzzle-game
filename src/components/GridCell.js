@@ -1,31 +1,32 @@
 import '../vars.css';
 import './GridCell.css';
 import { CELL_STATUS } from '../model/CellModel';
+import { getTypeString } from '../util';
+
+const CLASS_NAMES = {
+  [CELL_STATUS.OUTSIDE]: 'outside',
+  [CELL_STATUS.EMPTY]: 'empty',
+  [CELL_STATUS.INTERSECTION]: 'intersection'
+};
 
 function GridCell({ val, cellIndex, onClick }) {
   return (
-    <div className={ getClassNameFromVal( val ) + ' gridCell' } onClick={ onClick } >
+    <div className={ getClassName( val ) + ' gridCell' } onClick={ onClick } >
 
     </div>
   );
 }
 
-function getClassNameFromVal( val ) {
-  if ( val == CELL_STATUS.OUTSIDE ) {
-    return 'outside';
-  }
-
-  if ( val == CELL_STATUS.EMPTY ) {
-    return 'empty';
-  }
-
-  if ( val == CELL_STATUS.INTERSECTION ) {
-    return 'intersection';
+function getClassName( val ) {
+  if ( val in CLASS_NAMES ) {
+    return CLASS_NAMES[val];
   }
 
   if ( val > 0 ) {
-    return 'type' + val;
+    return getTypeString(val);
   }
+
+  console.error("Invalid cell value!", val);
 }
 
 export default GridCell;

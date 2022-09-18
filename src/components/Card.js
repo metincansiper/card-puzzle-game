@@ -1,11 +1,24 @@
 import '../vars.css';
 import './Card.css';
 import { SHAPE_DIRECTIONS } from '../model/ShapeModel';
+import { getTypeString, buildClassName } from '../util';
+
+const DIRECTION_CLASS_NAMES = {
+  [SHAPE_DIRECTIONS.LEFT]: 'left',
+  [SHAPE_DIRECTIONS.RIGHT]: 'right',
+  [SHAPE_DIRECTIONS.UP]: 'up',
+  [SHAPE_DIRECTIONS.DOWN]: 'down'
+};
 
 function Card({ deckType, shapeDirection, shapeLength }) {
+  const className = buildClassName([
+    'card', 
+    getTypeString(deckType)
+  ]);
+
   return (
-    <div className={ getClassName( deckType ) }>
-      <div class={ getDirectionClassName( shapeDirection ) } />
+    <div className={ className }>
+      <div className={ getDirectionClassName( shapeDirection ) } />
       <div>
         { shapeLength }
       </div>
@@ -13,25 +26,16 @@ function Card({ deckType, shapeDirection, shapeLength }) {
   );
 }
 
-const getClassName = ( deckType ) => {
-  let className = "card type" + deckType;
-
-  return className;
-}
-
 const getDirectionClassName = ( shapeDirection ) => {
-  if ( shapeDirection == SHAPE_DIRECTIONS.LEFT ) {
-    return 'left';
+  if ( shapeDirection in DIRECTION_CLASS_NAMES ) {
+    return DIRECTION_CLASS_NAMES[shapeDirection];
   }
-  else if ( shapeDirection == SHAPE_DIRECTIONS.RIGHT ) {
-    return 'right';
+
+  if ( shapeDirection == null ) {
+    return null;
   }
-  else if ( shapeDirection == SHAPE_DIRECTIONS.UP ) {
-    return 'up';
-  }
-  else if ( shapeDirection == SHAPE_DIRECTIONS.DOWN ) {
-    return 'down';
-  }
+  
+  console.error("Invalid shape direction!", shapeDirection);
 };
 
 export default Card;

@@ -1,21 +1,20 @@
 import '../vars.css';
 import './Deck.css';
+import { buildClassName, getTypeString } from '../util';
 
 function Deck({ deckType, size, selected, select }) {
+  const className = buildClassName([
+    'deck',
+    getTypeString(deckType),
+    selected ? 'selected' : null
+  ]);
+  
   return (
-    <div className={ getClassName( deckType, selected ) } onClick={ select }>
+    <div className={ className } onClick={ select }>
       { size }
     </div>
   );
 }
 
-const getClassName = ( deckType, selected ) => {
-  let className = "deck type" + deckType;
-  if ( selected ) {
-    className += " selected";
-  }
-
-  return className;
-}
 
 export default Deck;

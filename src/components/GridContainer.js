@@ -1,4 +1,3 @@
-import './GridContainer.css';
 import GridRow from './GridRow';
 
 function GridContainer( { boardData, onCellClick } ) {

@@ -13,7 +13,6 @@ function Game() {
   const [ decks, setDecks ] = useState( gameModel.getDecks() );
   const [ selectedDeckType, setSelectedDeckType ] = useState( gameModel.getSelectedDeckType() );
   const [ score, setScore ] = useState( gameModel.getScore() );
-  const [ gameIsOver, setGameIsOver ] = useState( gameModel.getIsGameOver() );
   const [ modalIsOpen, setIsModalOpen ] = useState( gameModel.getIsGameOver() );
   const [ lastUsedCard, setLastUsedCard ] = useState( gameModel.getLastUsedCard() );
 
@@ -36,7 +35,6 @@ function Game() {
 
     gameModel.on( 'gameStatusUpdate', () => {
       const gameIsOver = gameModel.getIsGameOver();
-      setGameIsOver( gameIsOver );
 
       if ( gameIsOver ) {
         openModal();
@@ -59,7 +57,6 @@ function Game() {
     setDecks( newGameModel.getDecks() );
     setSelectedDeckType( newGameModel.getSelectedDeckType() );
     setScore( newGameModel.getScore() );
-    setGameIsOver( newGameModel.getIsGameOver() );
     setLastUsedCard( newGameModel.getLastUsedCard() );
 
     closeModal();
@@ -92,7 +89,7 @@ function Game() {
       'transform': 'translate(-50%, -50%)',
       'display': 'flex',
       'gap': '5px',
-      'flex-direction': 'column'
+      'flexDirection': 'column'
     }
   };
 
