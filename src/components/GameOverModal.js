@@ -1,5 +1,4 @@
 import Modal from 'react-modal';
-import Leaderboard from './Leaderboard';
 
 function GameOverModal(props) {
     const { hasWon, score, restartGame, isOpen } = props;
