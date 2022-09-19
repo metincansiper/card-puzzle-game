@@ -1,0 +1,10 @@
+.leaderboardRow {
+    border-bottom: 1px solid #AFAFAF;
+    background-color: white;
+}
+
+.selectedRow {
+    font-weight: bold;
+    font-style: italic;
+    background-color: gray; 
+}

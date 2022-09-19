@@ -1,4 +1,5 @@
 import Modal from 'react-modal';
+import Leaderboard from './Leaderboard';
 
 function GameOverModal(props) {
     const { hasWon, score, restartGame, isOpen } = props;
@@ -25,6 +26,7 @@ function GameOverModal(props) {
           }
           Your score is { score }
           </div>
+          <Leaderboard score={ score }/>
           <button className="restartGameButton" onClick={ restartGame }>restart</button>
       </Modal>
     );

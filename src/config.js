@@ -3,3 +3,4 @@ export const MAX_SHAPE_LENGTH = 4;
 export const BOARD_INNER_WIDTH = 25;
 export const BOARD_INNER_HEIGHT = 25;
 export const BOARD_PADDING = 3;
+export const MAX_LEADERBOARD_SIZE = 10;
