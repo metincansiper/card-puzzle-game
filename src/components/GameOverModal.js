@@ -17,9 +17,9 @@ function GameOverModal(props) {
             'flexDirection': 'column'
         }
     };
-
+    
     return (
-        <Modal isOpen={ isOpen } contentLabel="Game Over" style={ modalStyles }>
+        <Modal isOpen={ isOpen } contentLabel="Game Over" style={ modalStyles } ariaHideApp={ false }>
           <div>
           {
             hasWon ? 'Congrats, you won the game! ' : 'Game is over! '
