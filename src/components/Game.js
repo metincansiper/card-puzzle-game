@@ -5,7 +5,7 @@ import GridContainer from './GridContainer';
 import DecksContainer from './DecksContainer';
 import Score from './Score';
 import Card from './Card';
-import Modal from 'react-modal';
+import GameOverModal from './GameOverModal';
 
 function Game() {
   const [ gameModel, setGameModel ] = useState( new GameModel({}) );
@@ -79,20 +79,6 @@ function Game() {
     setSelectedDeckType( gameModel.getSelectedDeckType() );
   };
 
-  const modalStyles = {
-    content: {
-      'top': '50%',
-      'left': '50%',
-      'right': 'auto',
-      'bottom': 'auto',
-      'marginRight': '-50%',
-      'transform': 'translate(-50%, -50%)',
-      'display': 'flex',
-      'gap': '5px',
-      'flexDirection': 'column'
-    }
-  };
-
   const getLastUsedDeckType = () => {
     if ( lastUsedCard == null ) {
       return null;
@@ -119,15 +105,7 @@ function Game() {
 
   return (
     <div>
-      <Modal isOpen={ modalIsOpen } contentLabel="Game Over" style={ modalStyles }>
-          <div>
-          {
-            gameModel.getHasWonTheGame() ? 'Congrats, you won the game! ' : 'Game is over! '
-          }
-          Your score is { score }
-          </div>
-          <button className="restartGameButton" onClick={ restartGame }>restart</button>
-      </Modal>
+      <GameOverModal isOpen={ modalIsOpen } restartGame={ restartGame } score={ score } hasWon= { gameModel.getHasWonTheGame() } />
       <div className="game">
         <GridContainer boardData={ boardData } onCellClick={ onCellClick } />
         <div className="leftBox">
