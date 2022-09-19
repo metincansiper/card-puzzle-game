@@ -1,13 +1,9 @@
-import DeckModel, { DECK_TYPE } from './DeckModel';
+import DeckModel from './DeckModel';
+import { DECK_TYPE } from './enum/Deck';
 import BoardModel from './BoardModel';
 import { MIN_SHAPE_LENGTH, MAX_SHAPE_LENGTH, BOARD_INNER_WIDTH, BOARD_INNER_HEIGHT, BOARD_PADDING } from '../config';
 import EventEmitter from 'events';
-
-export const GAME_STATUS = {
-  ON: 0,
-  LOST: 1,
-  WON: 2
-};
+import { GAME_STATUS } from './enum/Game';
 
 class GameModel {
   constructor( opts ) {
@@ -111,7 +107,7 @@ class GameModel {
   }
 
   getDeck( deckType ) {
-    return this.typeToDeck[ deckType ];
+    return deckType && this.typeToDeck[ deckType ];
   }
 
   getDecks() {
@@ -124,7 +120,7 @@ class GameModel {
 
   selectDeck( deckType ) {
     const deck = this.getDeck( deckType );
-    if ( deck.isEmpty() ) {
+    if ( deck == null || deck.isEmpty() ) {
       return;
     }
     

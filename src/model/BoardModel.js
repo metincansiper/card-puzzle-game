@@ -1,4 +1,4 @@
-import { CELL_STATUS } from './CellModel';
+import { CELL_STATUS } from './enum/Cell';
 import ShapeModel from './ShapeModel';
 import CardModel from './CardModel';
 import { BOARD_INNER_WIDTH, BOARD_INNER_HEIGHT, BOARD_PADDING } from '../config';

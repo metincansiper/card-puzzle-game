@@ -1,15 +1,7 @@
-// TODO: rename?
-import { SHAPE_DIRECTIONS } from './ShapeModel';
+import { SHAPE_DIRECTIONS } from './enum/Shape';
 import CardModel from './CardModel';
 import { inplaceShuffle } from '../util';
 import { MIN_SHAPE_LENGTH, MAX_SHAPE_LENGTH } from '../config';
-
-export const DECK_TYPE = {
-  TYPE_1: 1,
-  TYPE_2: 2,
-  TYPE_3: 3,
-  TYPE_4: 4
-};
 
 class DeckModel {
   constructor( deckType, minShapeLength = MIN_SHAPE_LENGTH, maxShapeLength = MAX_SHAPE_LENGTH ) {

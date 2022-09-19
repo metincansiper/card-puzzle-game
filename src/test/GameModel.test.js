@@ -1,5 +1,5 @@
 import GameModel from '../model/GameModel';
-import { SHAPE_DIRECTIONS } from '../model/ShapeModel';
+import { SHAPE_DIRECTIONS } from '../model/enum/Shape';
 import _ from 'lodash';
 
 test('test initial game status', () => {

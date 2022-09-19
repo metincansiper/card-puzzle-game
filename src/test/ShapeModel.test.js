@@ -1,4 +1,5 @@
-import ShapeModel, { SHAPE_DIRECTIONS } from '../model/ShapeModel';
+import ShapeModel from '../model/ShapeModel';
+import { SHAPE_DIRECTIONS } from '../model/enum/Shape';
 
 test('test left shape', () => {
   const shapeDirection = SHAPE_DIRECTIONS.LEFT;

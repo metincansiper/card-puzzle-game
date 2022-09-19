@@ -1,6 +1,6 @@
 import '../vars.css';
 import './Card.css';
-import { SHAPE_DIRECTIONS } from '../model/ShapeModel';
+import { SHAPE_DIRECTIONS } from '../model/enum/Shape';
 import { getTypeString, buildClassName } from '../util';
 
 const DIRECTION_CLASS_NAMES = {

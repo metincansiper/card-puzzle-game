@@ -1,8 +1,8 @@
 import BoardModel from '../model/BoardModel';
 import CardModel from '../model/CardModel';
-import { SHAPE_DIRECTIONS } from '../model/ShapeModel';
-import { DECK_TYPE } from '../model/DeckModel';
-import { CELL_STATUS } from '../model/CellModel';
+import { SHAPE_DIRECTIONS } from '../model/enum/Shape';
+import { DECK_TYPE } from '../model/enum/Deck';
+import { CELL_STATUS } from '../model/enum/Cell';
 import _ from 'lodash';
 
 test('test board data', () => {

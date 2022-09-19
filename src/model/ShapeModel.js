@@ -1,9 +1,4 @@
-export const SHAPE_DIRECTIONS = {
-  LEFT: 0,
-  RIGHT: 1,
-  UP: 2,
-  DOWN: 3
-};
+import { SHAPE_DIRECTIONS } from './enum/Shape';
 
 class ShapeModel {
   constructor( shapeDirection, shapeLength ) {

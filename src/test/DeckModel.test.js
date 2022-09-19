@@ -1,5 +1,6 @@
-import DeckModel, { DECK_TYPE } from '../model/DeckModel';
-import { SHAPE_DIRECTIONS } from '../model/ShapeModel';
+import DeckModel from '../model/DeckModel';
+import { DECK_TYPE } from '../model/enum/Deck';
+import { SHAPE_DIRECTIONS } from '../model/enum/Shape';
 import _ from 'lodash';
 
 test('test deck cards lengths', () => {

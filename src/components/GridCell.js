@@ -1,6 +1,6 @@
 import '../vars.css';
 import './GridCell.css';
-import { CELL_STATUS } from '../model/CellModel';
+import { CELL_STATUS } from '../model/enum/Cell';
 import { getTypeString } from '../util';
 
 const CLASS_NAMES = {
