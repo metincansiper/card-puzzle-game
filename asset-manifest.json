@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/card-puzzle-game/static/css/main.75cd3497.css",
-    "main.js": "/card-puzzle-game/static/js/main.f7dac435.js",
+    "main.js": "/card-puzzle-game/static/js/main.8ac7e4c1.js",
     "index.html": "/card-puzzle-game/index.html",
     "main.75cd3497.css.map": "/card-puzzle-game/static/css/main.75cd3497.css.map",
-    "main.f7dac435.js.map": "/card-puzzle-game/static/js/main.f7dac435.js.map"
+    "main.8ac7e4c1.js.map": "/card-puzzle-game/static/js/main.8ac7e4c1.js.map"
   },
   "entrypoints": [
     "static/css/main.75cd3497.css",
-    "static/js/main.f7dac435.js"
+    "static/js/main.8ac7e4c1.js"
   ]
 }
