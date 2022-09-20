@@ -24,10 +24,10 @@ function GameOverModal(props) {
           {
             hasWon ? 'Congrats, you won the game! ' : 'Game is over! '
           }
-          Your score is { score }
+          Your score is { score }!
           </div>
           <Leaderboard score={ score }/>
-          <button className="restartGameButton" onClick={ restartGame }>restart</button>
+          <button className="restartGameButton" onClick={ restartGame }>Restart Game</button>
       </Modal>
     );
 }
