@@ -70,7 +70,7 @@ class BoardModel {
     const coords = shape.getAbsoluteCoords( cellRowIndex, cellColIndex );
     const intersections = [];
 
-    for ( coord of coords ) {
+    for ( const coord of coords ) {
       const rowIndex = coord[ 0 ];
       const colIndex = coord[ 1 ];
 
