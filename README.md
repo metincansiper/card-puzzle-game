@@ -2,6 +2,9 @@
 
 A 2D board game developed using React. 
 
+## Availability
+Click [here](https://metincansiper.github.io/card-puzzle-game/) to play the game.
+
 ## Game Objects
 
 ### Shape
